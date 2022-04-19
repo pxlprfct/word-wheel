@@ -7,7 +7,7 @@ import {
 } from "../dev_deps.ts";
 
 import { describe, it, run } from "../dev_deps.ts";
-import { wordWheel } from "../dev_deps.ts";
+import { wordWheel } from "../src/word-wheel.ts";
 import { EXAMPLE_WORD_LIST } from "../dev_deps.ts";
 
 describe("GIVEN a Word Wheel", () => {
