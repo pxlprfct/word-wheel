@@ -4,11 +4,11 @@ import {
   assertThrows,
   assertArrayIncludes,
   assertNotEquals,
-} from "https://deno.land/std@0.135.0/testing/asserts.ts";
+} from "../dev_deps.ts";
 
-import { describe, it, run } from "https://deno.land/x/tincan@1.0.1/mod.ts";
-import { wordWheel } from "../src/word-wheel.ts";
-import { EXAMPLE_WORD_LIST } from "./example-word-list.ts";
+import { describe, it, run } from "../dev_deps.ts";
+import { wordWheel } from "../dev_deps.ts";
+import { EXAMPLE_WORD_LIST } from "../dev_deps.ts";
 
 describe("GIVEN a Word Wheel", () => {
   describe("[Letter guards]", () => {

@@ -1,6 +1,6 @@
+import { WordWheel } from "../types.d.ts";
 import { checkHasLetters } from "./helpers/errors/hasLetters.ts";
 import { makeAllLowerCase } from "./helpers/lowercase.ts";
-import { WordWheel } from "./types.d.ts";
 
 const getValidWords = ({
   requiredLetters,
@@ -55,7 +55,7 @@ export const wordWheel = ({
   requiredLetters,
   optionalLetters,
   wordList,
-}: WordWheel) => {
+}: WordWheel): string[] => {
   checkHasLetters({ requiredLetters, optionalLetters });
   // TODO(@ollie): we should probably validate that we have been passed letters
   // TODO(@ollie): check we have a word list
