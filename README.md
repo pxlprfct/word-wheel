@@ -22,3 +22,20 @@ wheel twice, so it can be used twice in the same word).
 - Cane (Middle letter not used)
 - Mama ('M' used twice, despite only appearing in the wheel once)
 
+## How to use
+
+```ts
+import { wordWheel } from "word-wheel";
+import { EXAMPLE_WORD_LIST } from "./example-word-list"; // use your own list of words
+
+const REQUIRED_LETTERS = ["L"];
+const OPTIONAL_LETTERS = ["A", "N", "C", "M", "U", "A", "B", "E"];
+
+const result = wordWheel({
+  requiredLetters: REQUIRED_LETTERS,
+  optionalLetters: OPTIONAL_LETTERS,
+  wordList: EXAMPLE_WORD_LIST,
+});
+
+// result = [ "ambulance", "albumen", "alumnae", "balance", "calumba", "canulae", ... ]
+```
