@@ -1,4 +1,4 @@
-const EXAMPLE_WORD_LIST = [
+export const EXAMPLE_WORD_LIST = [
 "aa",
 "aah",
 "aahed",
