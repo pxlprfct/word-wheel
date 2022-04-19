@@ -8,7 +8,7 @@ import {
 
 import { describe, it, run } from "../dev_deps.ts";
 import { wordWheel } from "../src/word-wheel.ts";
-import { EXAMPLE_WORD_LIST } from "../dev_deps.ts";
+import { EXAMPLE_WORD_LIST } from "./example-word-list.ts";
 
 describe("GIVEN a Word Wheel", () => {
   describe("[Letter guards]", () => {
