@@ -1,9 +1,9 @@
 import {
   assert,
-  assertEquals,
-  assertThrows,
   assertArrayIncludes,
+  assertEquals,
   assertNotEquals,
+  assertThrows,
 } from "../dev_deps.ts";
 
 import { describe, it, run } from "../dev_deps.ts";
@@ -74,8 +74,8 @@ describe("GIVEN a Word Wheel", () => {
     const OPTIONAL_LETTERS = ["A", "N", "C", "M", "U", "A", "B", "E"];
 
     it("THEN return words that are shorter than the combination of required and optional letters added together", () => {
-      const MAX_POSSIBLE_LETTERS_IN_WORD =
-        REQUIRED_LETTERS.length + OPTIONAL_LETTERS.length;
+      const MAX_POSSIBLE_LETTERS_IN_WORD = REQUIRED_LETTERS.length +
+        OPTIONAL_LETTERS.length;
 
       const result = wordWheel({
         wordList: EXAMPLE_WORD_LIST,
@@ -84,7 +84,7 @@ describe("GIVEN a Word Wheel", () => {
       });
 
       assert(
-        result.every((word) => MAX_POSSIBLE_LETTERS_IN_WORD >= word.length)
+        result.every((word) => MAX_POSSIBLE_LETTERS_IN_WORD >= word.length),
       );
     });
 
@@ -99,7 +99,7 @@ describe("GIVEN a Word Wheel", () => {
         assert(
           result.every((word) =>
             word.includes(REQUIRED_LETTERS[0].toLowerCase())
-          )
+          ),
         );
       });
 
@@ -116,8 +116,8 @@ describe("GIVEN a Word Wheel", () => {
           result.every(
             (word) =>
               word.includes(REQUIRED_LETTERS[0].toLowerCase()) &&
-              word.includes(REQUIRED_LETTERS[1].toLowerCase())
-          )
+              word.includes(REQUIRED_LETTERS[1].toLowerCase()),
+          ),
         );
       });
     });
@@ -230,7 +230,6 @@ describe("GIVEN a Word Wheel", () => {
           "alme",
           "alum",
           "amla",
-          "anal",
           "aula",
           "baal",
           "bael",

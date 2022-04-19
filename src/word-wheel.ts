@@ -25,7 +25,7 @@ const getValidWords = ({
       allLetters[letter] ? (allLetters[letter] += 1) : (allLetters[letter] = 1);
       return allLetters;
     },
-    {}
+    {},
   );
 
   const validWords = words.filter((word) => {
