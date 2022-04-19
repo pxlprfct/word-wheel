@@ -1,4 +1,4 @@
-import { Letters } from "../../types.d.ts";
+import { Letters } from "../../../types.d.ts";
 
 export const checkHasLetters = ({
   requiredLetters,
