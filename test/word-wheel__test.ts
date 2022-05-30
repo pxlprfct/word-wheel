@@ -333,8 +333,6 @@ describe("GIVEN a Word Wheel", () => {
         assertArrayIncludes(result, ["babel"]);
         // a word that's only possible by using the letters multiple times
         assertArrayIncludes(result, ["ambulancemen"]);
-
-        assertEquals(result, 26);
       });
     });
   });
