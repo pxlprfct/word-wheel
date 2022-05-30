@@ -32,10 +32,44 @@ const REQUIRED_LETTERS = ["L"];
 const OPTIONAL_LETTERS = ["A", "N", "C", "M", "U", "A", "B", "E"];
 
 const result = wordWheel({
-  requiredLetters: REQUIRED_LETTERS,
-  optionalLetters: OPTIONAL_LETTERS,
-  wordList: EXAMPLE_WORD_LIST,
+  letters: {
+    requiredLetters: REQUIRED_LETTERS,
+    optionalLetters: OPTIONAL_LETTERS,
+  },
+  dictionary: EXAMPLE_WORD_LIST,
 });
 
 // result = [ "ambulance", "albumen", "alumnae", "balance", "calumba", "canulae", ... ]
 ```
+
+---
+
+By adding the `lettersCanBeUsedMultipleTimes` option, you _could_ use this
+library to cheat the
+[NYT Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee). However, as
+the dictionary the New York Times use isn't public - you may get some false
+positives.
+
+```ts
+import { wordWheel } from "word-wheel";
+import { EXAMPLE_WORD_LIST } from "./example-word-list"; // use your own list of words
+
+const REQUIRED_LETTERS = ["L"];
+const OPTIONAL_LETTERS = ["A", "N", "C", "M", "U", "A", "B", "E"];
+
+const result = wordWheel({
+  letters: {
+    requiredLetters: REQUIRED_LETTERS,
+    optionalLetters: OPTIONAL_LETTERS,
+  },
+  dictionary: EXAMPLE_WORD_LIST,
+  options: {
+    lettersCanBeUsedMultipleTimes: true,
+  },
+});
+
+// result = [ "ambulanceman", "ambulancemen", "accumulable", "balanceable", "cancellable", "unblameable", ... ]
+```
+
+If you need an example dictionary to use
+[checkout the word list used in the tests.](https://github.com/pxlprfct/word_wheel/blob/main/test/example-word-list.ts)

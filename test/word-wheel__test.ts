@@ -20,9 +20,11 @@ describe("GIVEN a Word Wheel", () => {
         // missing required letters
         assertThrows(() =>
           wordWheel({
-            requiredLetters: EMPTY,
-            optionalLetters: LETTERS,
-            wordList: EXAMPLE_WORD_LIST,
+            letters: {
+              requiredLetters: EMPTY,
+              optionalLetters: LETTERS,
+            },
+            dictionary: EXAMPLE_WORD_LIST,
           })
         );
       });
@@ -36,18 +38,22 @@ describe("GIVEN a Word Wheel", () => {
         // missing optional letters
         assertThrows(() =>
           wordWheel({
-            wordList: EXAMPLE_WORD_LIST,
-            requiredLetters: LETTERS,
-            optionalLetters: EMPTY,
+            letters: {
+              requiredLetters: LETTERS,
+              optionalLetters: EMPTY,
+            },
+            dictionary: EXAMPLE_WORD_LIST,
           })
         );
 
         // missing both required and optional letters
         assertThrows(() =>
           wordWheel({
-            wordList: EXAMPLE_WORD_LIST,
-            requiredLetters: EMPTY,
-            optionalLetters: EMPTY,
+            letters: {
+              requiredLetters: EMPTY,
+              optionalLetters: EMPTY,
+            },
+            dictionary: EXAMPLE_WORD_LIST,
           })
         );
       });
@@ -60,9 +66,11 @@ describe("GIVEN a Word Wheel", () => {
         // missing both required and optional letters
         assertThrows(() =>
           wordWheel({
-            wordList: EXAMPLE_WORD_LIST,
-            requiredLetters: EMPTY,
-            optionalLetters: EMPTY,
+            letters: {
+              requiredLetters: EMPTY,
+              optionalLetters: EMPTY,
+            },
+            dictionary: EXAMPLE_WORD_LIST,
           })
         );
       });
@@ -74,32 +82,36 @@ describe("GIVEN a Word Wheel", () => {
     const OPTIONAL_LETTERS = ["A", "N", "C", "M", "U", "A", "B", "E"];
 
     it("THEN return words that are shorter than the combination of required and optional letters added together", () => {
-      const MAX_POSSIBLE_LETTERS_IN_WORD = REQUIRED_LETTERS.length +
-        OPTIONAL_LETTERS.length;
+      const MAX_POSSIBLE_LETTERS_IN_WORD =
+        REQUIRED_LETTERS.length + OPTIONAL_LETTERS.length;
 
       const result = wordWheel({
-        wordList: EXAMPLE_WORD_LIST,
-        requiredLetters: REQUIRED_LETTERS,
-        optionalLetters: OPTIONAL_LETTERS,
+        letters: {
+          requiredLetters: REQUIRED_LETTERS,
+          optionalLetters: OPTIONAL_LETTERS,
+        },
+        dictionary: EXAMPLE_WORD_LIST,
       });
 
       assert(
-        result.every((word) => MAX_POSSIBLE_LETTERS_IN_WORD >= word.length),
+        result.every((word) => MAX_POSSIBLE_LETTERS_IN_WORD >= word.length)
       );
     });
 
     describe("[Required letters]", () => {
       it("THEN return words that always include the required letter", () => {
         const result = wordWheel({
-          wordList: EXAMPLE_WORD_LIST,
-          requiredLetters: REQUIRED_LETTERS,
-          optionalLetters: OPTIONAL_LETTERS,
+          letters: {
+            requiredLetters: REQUIRED_LETTERS,
+            optionalLetters: OPTIONAL_LETTERS,
+          },
+          dictionary: EXAMPLE_WORD_LIST,
         });
 
         assert(
           result.every((word) =>
             word.includes(REQUIRED_LETTERS[0].toLowerCase())
-          ),
+          )
         );
       });
 
@@ -107,17 +119,19 @@ describe("GIVEN a Word Wheel", () => {
         const REQUIRED_LETTERS = ["L", "T"];
 
         const result = wordWheel({
-          wordList: EXAMPLE_WORD_LIST,
-          requiredLetters: REQUIRED_LETTERS,
-          optionalLetters: OPTIONAL_LETTERS,
+          letters: {
+            requiredLetters: REQUIRED_LETTERS,
+            optionalLetters: OPTIONAL_LETTERS,
+          },
+          dictionary: EXAMPLE_WORD_LIST,
         });
 
         assert(
           result.every(
             (word) =>
               word.includes(REQUIRED_LETTERS[0].toLowerCase()) &&
-              word.includes(REQUIRED_LETTERS[1].toLowerCase()),
-          ),
+              word.includes(REQUIRED_LETTERS[1].toLowerCase())
+          )
         );
       });
     });
@@ -125,9 +139,11 @@ describe("GIVEN a Word Wheel", () => {
     describe("[Answer checking]", () => {
       it("THEN return valid words", () => {
         const result = wordWheel({
-          wordList: EXAMPLE_WORD_LIST,
-          requiredLetters: REQUIRED_LETTERS,
-          optionalLetters: OPTIONAL_LETTERS,
+          letters: {
+            requiredLetters: REQUIRED_LETTERS,
+            optionalLetters: OPTIONAL_LETTERS,
+          },
+          dictionary: EXAMPLE_WORD_LIST,
         });
 
         assertArrayIncludes(result, ["calm"]);
@@ -137,9 +153,11 @@ describe("GIVEN a Word Wheel", () => {
 
       it("THEN don't return invalid words", () => {
         const result = wordWheel({
-          wordList: EXAMPLE_WORD_LIST,
-          requiredLetters: REQUIRED_LETTERS,
-          optionalLetters: OPTIONAL_LETTERS,
+          letters: {
+            requiredLetters: REQUIRED_LETTERS,
+            optionalLetters: OPTIONAL_LETTERS,
+          },
+          dictionary: EXAMPLE_WORD_LIST,
         });
 
         // completely invalid letters
@@ -152,9 +170,11 @@ describe("GIVEN a Word Wheel", () => {
 
       it("THEN return valid words, sorted by number of characters", () => {
         const result = wordWheel({
-          wordList: EXAMPLE_WORD_LIST,
-          requiredLetters: REQUIRED_LETTERS,
-          optionalLetters: OPTIONAL_LETTERS,
+          letters: {
+            requiredLetters: REQUIRED_LETTERS,
+            optionalLetters: OPTIONAL_LETTERS,
+          },
+          dictionary: EXAMPLE_WORD_LIST,
         });
 
         assertEquals(result, [
@@ -293,6 +313,28 @@ describe("GIVEN a Word Wheel", () => {
           "el",
           "la",
         ]);
+      });
+    });
+
+    describe("[Answer checking] - When letters can be used multiple times", () => {
+      it("THEN return valid words", () => {
+        const result = wordWheel({
+          letters: {
+            requiredLetters: REQUIRED_LETTERS,
+            optionalLetters: OPTIONAL_LETTERS,
+          },
+          dictionary: EXAMPLE_WORD_LIST,
+          options: {
+            lettersCanBeUsedMultipleTimes: true,
+          },
+        });
+
+        // uses the single 'b' twice
+        assertArrayIncludes(result, ["babel"]);
+        // a word that's only possible by using the letters multiple times
+        assertArrayIncludes(result, ["ambulancemen"]);
+
+        assertEquals(result, 26);
       });
     });
   });

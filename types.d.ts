@@ -1,11 +1,16 @@
-type letters = string[];
-type wordList = string[];
+export type Dictionary = string[];
 
 export interface Letters {
-  requiredLetters: letters;
-  optionalLetters?: letters;
+  requiredLetters: string[];
+  optionalLetters?: string[] | undefined;
 }
 
-export interface WordWheel extends Letters {
-  wordList: wordList;
+export interface Options {
+  lettersCanBeUsedMultipleTimes: boolean;
+}
+
+export interface WordWheel {
+  letters: Letters;
+  dictionary: Dictionary;
+  options?: Options;
 }
