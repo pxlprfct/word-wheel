@@ -72,4 +72,4 @@ const result = wordWheel({
 ```
 
 If you need an example dictionary to use
-[checkout the word list used in the tests.](https://github.com/pxlprfct/word_wheel/blob/main/test/example-word-list.ts)
+[checkout the word list used in the tests.](https://raw.githubusercontent.com/pxlprfct/word_wheel/main/test/example-word-list.ts)
