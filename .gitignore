@@ -140,3 +140,5 @@ dist
 
 # deno tests
 cov_profile
+
+.git-hooks
