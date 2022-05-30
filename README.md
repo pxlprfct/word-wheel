@@ -1,5 +1,7 @@
 # Solving a ‘Word Wheel’ with Deno
 
+[![deno land](http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno&labelColor=black)](https://deno.land/x/word_wheel)
+
 **How many different words can you make with a ‘Word Wheel’?**
 
 ## Rules
