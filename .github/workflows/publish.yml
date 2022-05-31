@@ -21,3 +21,4 @@ jobs:
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: "./npm/package.json"
+          access: "public"
