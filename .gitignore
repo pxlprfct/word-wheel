@@ -142,3 +142,4 @@ dist
 cov_profile
 
 .git-hooks
+npm
