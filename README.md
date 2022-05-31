@@ -1,6 +1,7 @@
 # Word Wheel
 
 [![deno land](http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno&labelColor=black)](https://deno.land/x/word_wheel)
+![npm](https://img.shields.io/npm/v/@pxlprfct/word-wheel)
 
 **A dependency-free(!) library to solve word wheels - or even the [NYT Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee)!**
 
