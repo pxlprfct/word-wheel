@@ -1,8 +1,8 @@
-# Solving a ‘Word Wheel’ with Deno
+# Word Wheel
 
 [![deno land](http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno&labelColor=black)](https://deno.land/x/word_wheel)
 
-**How many different words can you make with a ‘Word Wheel’?**
+**A dependency-free(!) library to solve word wheels - or even the [NYT Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee)!**
 
 ## Rules
 
