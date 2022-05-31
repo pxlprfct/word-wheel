@@ -1,4 +1,4 @@
-import { WordWheel, Letters } from "../types.d.ts";
+import { WordWheel, Letters, SpellingBee } from "../types.d.ts";
 import { filterDictionary } from "./helpers/filterDictionary.ts";
 import { checkHasLetters } from "./helpers/errors/hasLetters.ts";
 import { lowerCaseAll } from "./helpers/lowerCase.ts";
@@ -34,11 +34,30 @@ export const wordWheel = ({
     options,
   });
 
-  const validWords = getValidWords({
+  let validWords = getValidWords({
     letters,
     dictionary: filteredDictionary,
     lettersCanBeUsedMultipleTimes: options?.lettersCanBeUsedMultipleTimes,
   });
 
+  if (options?.minimumLength) {
+    validWords = validWords.filter(
+      (word) => word.length >= options.minimumLength!
+    );
+  }
+
   return validWords.sort((first, second) => second.length - first.length);
 };
+
+export const spellingBee = ({
+  letters: { requiredLetters, optionalLetters },
+  dictionary,
+}: SpellingBee): string[] =>
+  wordWheel({
+    letters: { requiredLetters, optionalLetters },
+    dictionary,
+    options: {
+      lettersCanBeUsedMultipleTimes: true,
+      minimumLength: 4,
+    },
+  });

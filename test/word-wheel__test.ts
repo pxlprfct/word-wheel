@@ -316,23 +316,85 @@ describe("GIVEN a Word Wheel", () => {
       });
     });
 
-    describe("[Answer checking] - When letters can be used multiple times", () => {
-      it("THEN return valid words", () => {
-        const result = wordWheel({
-          letters: {
-            requiredLetters: REQUIRED_LETTERS,
-            optionalLetters: OPTIONAL_LETTERS,
-          },
-          dictionary: EXAMPLE_WORD_LIST,
-          options: {
-            lettersCanBeUsedMultipleTimes: true,
-          },
-        });
+    describe("[Options]", () => {
+      describe("WHEN letters can be used multiple times", () => {
+        it("THEN return valid words", () => {
+          const result = wordWheel({
+            letters: {
+              requiredLetters: REQUIRED_LETTERS,
+              optionalLetters: OPTIONAL_LETTERS,
+            },
+            dictionary: EXAMPLE_WORD_LIST,
+            options: {
+              lettersCanBeUsedMultipleTimes: true,
+            },
+          });
 
-        // uses the single 'b' twice
-        assertArrayIncludes(result, ["babel"]);
-        // a word that's only possible by using the letters multiple times
-        assertArrayIncludes(result, ["ambulancemen"]);
+          // uses the single 'b' twice
+          assertArrayIncludes(result, ["babel"]);
+          // a word that's only possible by using the letters multiple times
+          assertArrayIncludes(result, ["ambulancemen"]);
+          // completely invalid letters
+          assertNotEquals(result.includes("hello"), true);
+          // uses the 'm' twice
+          assertNotEquals(result.includes("mama"), true);
+          // doesn't use the required letter
+          assertNotEquals(result.includes("cane"), true);
+        });
+      });
+
+      describe("WHEN requesting words over a certain length", () => {
+        it("THEN return valid words", () => {
+          const LENGTH = 6;
+
+          const result = wordWheel({
+            letters: {
+              requiredLetters: REQUIRED_LETTERS,
+              optionalLetters: OPTIONAL_LETTERS,
+            },
+            dictionary: EXAMPLE_WORD_LIST,
+            options: {
+              minimumLength: LENGTH,
+            },
+          });
+
+          assertEquals(result, [
+            "ambulance",
+            "albumen",
+            "alumnae",
+            "balance",
+            "calumba",
+            "canulae",
+            "clubman",
+            "clubmen",
+            "lacunae",
+            "maculae",
+            "manacle",
+            "namable",
+            "almuce",
+            "alumna",
+            "anlace",
+            "bacula",
+            "becalm",
+            "bemaul",
+            "canula",
+            "clambe",
+            "culmen",
+            "cuneal",
+            "encalm",
+            "lacuna",
+            "lacune",
+            "launce",
+            "mabela",
+            "macula",
+            "macule",
+            "manual",
+            "nebula",
+            "unable",
+            "unbale",
+            "unlace",
+          ]);
+        });
       });
     });
   });

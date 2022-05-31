@@ -6,11 +6,15 @@ export interface Letters {
 }
 
 export interface Options {
-  lettersCanBeUsedMultipleTimes: boolean;
+  lettersCanBeUsedMultipleTimes?: boolean;
+  minimumLength?: number;
 }
 
-export interface WordWheel {
+export interface SpellingBee {
   letters: Letters;
   dictionary: Dictionary;
+}
+
+export interface WordWheel extends SpellingBee {
   options?: Options;
 }

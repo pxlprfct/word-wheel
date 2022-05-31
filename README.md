@@ -3,7 +3,8 @@
 [![deno land](http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno&labelColor=black)](https://deno.land/x/word_wheel)
 ![npm](https://img.shields.io/npm/v/@pxlprfct/word-wheel)
 
-**A dependency-free(!) library to solve word wheels - or even the [NYT Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee)!**
+**A dependency-free(!) library to solve word wheels - or even the
+[NYT Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee)!**
 
 ## Rules
 
@@ -47,28 +48,24 @@ const result = wordWheel({
 
 ---
 
-By adding the `lettersCanBeUsedMultipleTimes` option, you _could_ use this
-library to cheat the
+You _could_ use this library to cheat the
 [NYT Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee). However, as
 the dictionary the New York Times use isn't public - you may get some false
 positives. Best of luck getting those pangrams!
 
 ```ts
-import { wordWheel } from "word-wheel";
+import { spellingBee } from "word-wheel";
 import { EXAMPLE_WORD_LIST } from "./example-word-list"; // use your own list of words
 
 const REQUIRED_LETTERS = ["L"];
 const OPTIONAL_LETTERS = ["A", "N", "C", "M", "U", "A", "B", "E"];
 
-const result = wordWheel({
+const result = spellingBee({
   letters: {
     requiredLetters: REQUIRED_LETTERS,
     optionalLetters: OPTIONAL_LETTERS,
   },
   dictionary: EXAMPLE_WORD_LIST,
-  options: {
-    lettersCanBeUsedMultipleTimes: true,
-  },
 });
 
 // result = [ "ambulanceman", "ambulancemen", "accumulable", "balanceable", "cancellable", "unblameable", ... ]
