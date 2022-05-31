@@ -14,7 +14,7 @@ await build({
   },
   package: {
     // package.json properties
-    name: "word-wheel",
+    name: "@pxlprfct/word-wheel",
     version: Deno.args[0],
     description:
       "A dependency-free way to solve a word wheel, or the NYT Spelling Bee!",
