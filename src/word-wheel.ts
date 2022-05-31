@@ -53,6 +53,7 @@ export const spellingBee = ({
   letters: { requiredLetters, optionalLetters },
   dictionary,
 }: SpellingBee): string[] =>
+  // TODO(@pxlprfct): it might be nice to specifically separate the pangrams(?)
   wordWheel({
     letters: { requiredLetters, optionalLetters },
     dictionary,
