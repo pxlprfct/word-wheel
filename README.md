@@ -30,7 +30,7 @@ wheel twice, so it can be used twice in the same word).
 
 ```ts
 import { wordWheel } from "word-wheel";
-import { EXAMPLE_WORD_LIST } from "./example-word-list"; // use your own list of words
+import { EXAMPLE_WORD_LIST } from "./example-word-list"; // supply your own dictionary
 
 const REQUIRED_LETTERS = ["L"];
 const OPTIONAL_LETTERS = ["A", "N", "C", "M", "U", "A", "B", "E"];
@@ -55,10 +55,10 @@ positives. Best of luck getting those pangrams!
 
 ```ts
 import { spellingBee } from "word-wheel";
-import { EXAMPLE_WORD_LIST } from "./example-word-list"; // use your own list of words
+import { EXAMPLE_WORD_LIST } from "./example-word-list"; // supply your own dictionary
 
-const REQUIRED_LETTERS = ["L"];
-const OPTIONAL_LETTERS = ["A", "N", "C", "M", "U", "A", "B", "E"];
+const REQUIRED_LETTERS = ["C"];
+const OPTIONAL_LETTERS = ["R", "J", "U", "A", "L", "O"];
 
 const result = spellingBee({
   letters: {
@@ -68,7 +68,7 @@ const result = spellingBee({
   dictionary: EXAMPLE_WORD_LIST,
 });
 
-// result = [ "ambulanceman", "ambulancemen", "accumulable", "balanceable", "cancellable", "unblameable", ... ]
+// result = [ "rollcollar", "calcular", "callaloo", "caracara", "carcajou", "carjacou", "corocoro", "jararaca", "oracular", "accrual", "calaloo", "caracal", "caracol", "caracul", "cloacal", "coralla", "corolla", "curacao", "curacoa", "jocular", ... ]
 ```
 
 If you need an example dictionary to use
