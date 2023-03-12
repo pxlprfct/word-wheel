@@ -12,7 +12,7 @@ const getWordsForSingleUsages = ({
   // create an object that has the letter and the number of times we can use it (per word)
   // (using an object should mean we get relatively speedy lookups for a single letter)
   const lettersInWordWheelAndTheirOccurrences = possibleLetters.reduce(
-    (letters: Record<Lowercase<string>, number>, letter) => {
+    (letters: Record<string, number>, letter) => {
       letters[letter] ? (letters[letter] += 1) : (letters[letter] = 1);
       return letters;
     },
@@ -92,8 +92,8 @@ export const getValidWords = ({
 
   return lettersCanBeUsedMultipleTimes
     ? getWordsForMultipleUsages({
-        dictionary,
-        possibleLetters,
-      })
+      dictionary,
+      possibleLetters,
+    })
     : getWordsForSingleUsages({ dictionary, possibleLetters });
 };
