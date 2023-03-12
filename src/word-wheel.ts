@@ -15,7 +15,7 @@ export const wordWheel = ({
   // NOTE(@pxlprfct): Possible options that could be added in the future:
   // ---
   // isDictionaryLowerCase: boolean - Saves us looping and forcing lowercase on the dictionary
-  //    _Technicaly_ we could go for something case insensitive, but that's a bit more work
+  //    _Technically_ we could go for something case insensitive, but that's a bit more work
   // ---
   // isLetterSetAlreadyLowerCase: boolean - Doesn't save much - but nice for consistency
   // ---
