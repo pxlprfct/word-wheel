@@ -41,6 +41,10 @@ const result = wordWheel({
     optionalLetters: OPTIONAL_LETTERS,
   },
   dictionary: EXAMPLE_WORD_LIST,
+  // options: {
+  //   lettersCanBeUsedMultipleTimes: true,
+  //   minimumLength: 4,
+  // },
 });
 
 // result = [ "ambulance", "albumen", "alumnae", "balance", "calumba", "canulae", ... ]
