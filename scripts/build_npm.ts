@@ -17,7 +17,7 @@ await build({
     name: "@pxlprfct/word-wheel",
     version: Deno.args[0],
     description:
-      "A dependency-free way to solve a word wheel, or the NYT Spelling Bee!",
+      "A dependency-free way to solve a word wheel or the NYT Spelling Bee!",
     license: "MIT",
     repository: {
       type: "git",

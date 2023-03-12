@@ -1,5 +1,5 @@
-export const lowerCase = (letter: string): Lowercase<string> =>
+export const lowerCase = (letter: string): string =>
   letter.toLowerCase();
 
-export const lowerCaseAll = (letters?: string[]): Lowercase<string>[] =>
+export const lowerCaseAll = (letters?: string[]): string[] =>
   (letters || []).map(lowerCase);

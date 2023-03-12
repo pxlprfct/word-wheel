@@ -41,6 +41,10 @@ const result = wordWheel({
     optionalLetters: OPTIONAL_LETTERS,
   },
   dictionary: EXAMPLE_WORD_LIST,
+  // options: {
+  //   lettersCanBeUsedMultipleTimes: true,
+  //   minimumLength: 4,
+  // },
 });
 
 // result = [ "ambulance", "albumen", "alumnae", "balance", "calumba", "canulae", ... ]
@@ -50,7 +54,7 @@ const result = wordWheel({
 
 You _could_ use this library to cheat the
 [NYT Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee). However, as
-the dictionary the New York Times use isn't public - you may get some false
+the dictionary the New York Times uses isn't public - you may get some false
 positives. Best of luck getting those pangrams!
 
 ```ts
